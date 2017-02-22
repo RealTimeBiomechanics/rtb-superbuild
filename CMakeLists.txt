@@ -15,6 +15,10 @@ set(RTB-SUPERBUILD_VERSION ${RTB-SUPERBUILD_MAJOR_VERSION}.${RTB-SUPERBUILD_MINO
 include(CTest)
 include(FeatureSummary)
 
+if(UNIX AND NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Release CACHE STRING "Choose the type of build, options are: None Debug Release RelWithDebInfo MinSizeRel." FORCE)
+endif()
+
 set(YCM_USE_CMAKE_PROPOSED TRUE CACHE BOOL "Use files including unmerged cmake patches")
 
 #Add options
